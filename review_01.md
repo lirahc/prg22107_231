@@ -4,12 +4,25 @@ Review da prova de programação orientada a objeto
 R: "A gente lida com a máxima de sistemas complexos com a situação de dividir para conquistar"
   - Então, com programação orientada a objetos conseguimos **Abstrair** o conceito e modelando o problema do "mundo real" para a ferramenta que vai ser utilizada, sendo assim a ideia principal é abstrair o conceito claro para implementar no modelo aplicado.  
 
-2) Diferença entre classe, estado e identidade
-R: 
- Classe:
-    - Interface;
-    - Métodos;
-   Estado:
-    - X
-   Identidade:
-    - X
+2) Diferença entre classe, estado e identidade (hugo question)
+R: .
+
+3) O que é hierarquia (hugo question)
+R: " 
+
+4) O que é encapsulamento (hugo question)
+R: "
+
+5) Conceitos chaves de programação orientada a objetos:
+R: São 3 conceitos chaves, 
+
+| Objetos | Second Header |
+| ------------- | ------------- |
+| Identidade; Ação; Estado  | Content Cell  |
+| • Modificadores: uma operação que altera o estado de um objeto.
+• Selecionadores: uma operação que acessa o estado de um objeto (sem alterá-lo)
+• Interadores: uma operação que permite o acesso a “partes" de um objeto em uma ordem bem definida
+• Construtores: uma operação para criar e inicializar o estado de um objeto
+• Destrutores: uma operação para livrar o estado de um objeto e “destruí-lo”. | Content Cell  |
+
+
