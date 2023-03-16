@@ -38,18 +38,18 @@ R: São objetos que derivam dos outros, ou seja, tem uma classe mais específica
      
 ```
 
-7) Diagrama de sequencia:
+7) Diagrama de sequencia: Jogo da Velha
 ```mermaid
 sequenceDiagram
     autonumber
-    Alice->>John: Hello John, how are you?
+    Player1->>Jogo: Escolhe a peça X ou O ?
     loop Healthcheck
-        John->>John: Fight against hypochondria
+        Jogo->>Player1: Fight against hypochondria
     end
     Note right of John: Rational thoughts!
-    John-->>Alice: Great!
-    John->>Bob: How about you?
-    Bob-->>John: Jolly good!
+    Jogo-->>Player1: X!
+    Jogo->>Player2: Você inicia o jogo!
+    Player2-->>Jogo: Primeira posição em "cordX + cordY"
 ```
 
 
