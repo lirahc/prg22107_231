@@ -31,10 +31,11 @@ R: São objetos que derivam dos outros, ou seja, tem uma classe mais específica
 
 ```mermaid
   graph TD;
-      A-->B;
-      A-->C;
-      B-->D;
-      C-->D;
+      Aluno-->Pessoa;
+      Professor-->Pessoa;
+      Teste-->Aluno;
+      Prova-->Professor;
+     
 ```
 
 7)
