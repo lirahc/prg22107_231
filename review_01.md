@@ -16,13 +16,16 @@ R: "
 5) Conceitos chaves de programação orientada a objetos:
 R: São 3 conceitos chaves, 
 
-| Objetos | Second Header |
+| Objetos | Classes |
 | ------------- | ------------- |
-| Identidade; Ação; Estado  | Content Cell  |
+| Identidade; Ação; Estado  | Público; Privado; Protegido  |
 | • Modificadores: uma operação que altera o estado de um objeto.
 • Selecionadores: uma operação que acessa o estado de um objeto (sem alterá-lo)
 • Interadores: uma operação que permite o acesso a “partes" de um objeto em uma ordem bem definida
 • Construtores: uma operação para criar e inicializar o estado de um objeto
-• Destrutores: uma operação para livrar o estado de um objeto e “destruí-lo”. | Content Cell  |
-
+• Destrutores: uma operação para livrar o estado de um objeto e “destruí-lo”. | • Interface
+• Associações: É a relação mais genérica e geralmente a mais fraca semanticamente 
+• Hernaça: Expressa as relações de generalização e especialização entre classes
+• Polimorfismo: Conceito na teoria de tipos, onde um nome pode denotar instancias de diferentes classes.
+• Agregação & Composição: Relações de agregação denotam a relação de todoparte. 
 
