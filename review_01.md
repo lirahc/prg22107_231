@@ -43,7 +43,7 @@ R: São objetos que derivam dos outros, ou seja, tem uma classe mais específica
 sequenceDiagram
     autonumber
     Player1->>Jogo: Escolhe a peça X ou O ?
-    loop Escolha a peça
+    loop Escolha
         Jogo->>Player1: Fight against hypochondria
     end
     Note right of Jogo Rational thoughts!
