@@ -28,9 +28,15 @@ R: São 3 conceitos chaves,
 
 6) Qual a ideia e exemplo de herança:
 R: São objetos que derivam dos outros, ou seja, tem uma classe mais específica que advém de uma classe mais genérica.
-- | Professor| Aluno |
-- | Atividades| Atividades |
-- | Pessoas| Pessoas |
+
+```mermaid
+graph TD;
+    Pessoas<--Professor;
+    Pessoas<--Aluno;
+    
+```
+
+
 7)
 
 
