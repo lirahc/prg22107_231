@@ -26,6 +26,11 @@ R: São 3 conceitos chaves,
 • Destrutores: uma operação para livrar o estado de um objeto e “destruí-lo”. | • Interface : Conhecida de diversas formas, de acordo com a linguagem
 
 
-
+6) Qual a ideia e exemplo de herança:
+R: São objetos que derivam dos outros, ou seja, tem uma classe mais específica que advém de uma classe mais genérica.
+- | Professor| Aluno |
+- | Atividades| Atividades |
+- | Pessoas| Pessoas |
+7)
 
 
