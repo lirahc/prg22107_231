@@ -39,7 +39,7 @@ R: São objetos que derivam dos outros, ou seja, tem uma classe mais específica
 ```
 
 7) Diagrama de sequencia: Jogo da Velha
-```
+
 classDiagram
 Class01 <|-- AveryLongClass : Cool
 <<Interface>> Class01
@@ -56,6 +56,6 @@ class Class10 {
   int id
   size()
 }
-```
+
 
 
