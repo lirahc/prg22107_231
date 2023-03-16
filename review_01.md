@@ -23,8 +23,7 @@ R: São 3 conceitos chaves,
 • Selecionadores: uma operação que acessa o estado de um objeto (sem alterá-lo) | • Hernaça: Expressa as relações de generalização e especialização entre classes
 • Interadores: uma operação que permite o acesso a “partes" de um objeto em uma ordem bem definida | • Polimorfismo: Conceito na teoria de tipos, onde um nome pode denotar instancias de diferentes classes.
 • Construtores: uma operação para criar e inicializar o estado de um objeto | • Agregação & Composição: Relações de agregação denotam a relação de todoparte. 
-• Destrutores: uma operação para livrar o estado de um objeto e “destruí-lo”. | • Interface : Conhecida de diversas formas, de
-acordo com a linguagem
+• Destrutores: uma operação para livrar o estado de um objeto e “destruí-lo”. | • Interface : Conhecida de diversas formas, de acordo com a linguagem
 
 
 
