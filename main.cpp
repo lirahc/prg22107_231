@@ -1,6 +1,5 @@
-#include<iostream>
-#include<stdlib.h>
-#include<string.h>
+/*thiago de lira - batalha pokemon   12-05 v1*/
+/*thiago de lira - batalha pokemon   22-05 v2*/
 
 using namespace std;
 
@@ -47,3 +46,10 @@ class POK
 		}
 
 };
+
+      POK Voltorb(4,60,5,4,3,"Voltorb","Electric"),Pikachu(7,80,6,5,8,"Pikachu","Electric");
+      POK Psyduck(3,50,4,7,5,"Psyduck","Water"),Golduck(8,90,5,8,7,"Golduck","Water");
+      POK Ninetales(7,70,8,5,6,"Ninetales","Fire"),Charizard(9,80,4,7,9,"Charizard","Fire");
+      POK Butterfee(6,50,8,3,6,"Butterfee","Flying"),Spearow(8,70,9,4,7,"Spearow","Flying");
+      POK Alakazam(7,80,4,5,9,"Alakazam","Psychic"),MrMime(8,70,4,9,7,"MrMime","Psychic");
+      POK Golem(7,90,3,8,7,"Golem","Rock"),Kabutops(9,70,6,9,8,"Kabutops","Rock");
