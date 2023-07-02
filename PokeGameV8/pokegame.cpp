@@ -3,7 +3,7 @@
 #include <ctime>
 
 PokeGame::PokeGame(QWidget *parent)
-    : QWidget(parent)
+    : QWidget(parent), _player(nullptr)
 {
     _battleScreen = false;
     createInitialScreen();
@@ -20,13 +20,31 @@ PokeGame::~PokeGame()
 
 void PokeGame::createInitialScreen()
 {
-    _title = new QLabel("Choose your Pokemon:");
+    /*_title = new QLabel("PokeGame");
+    QFont titleFont("Arial", 20, QFont::Bold);
+    _title->setFont(titleFont);
+    _title->setAlignment(Qt::AlignCenter);*/
+
+    _title = new QLabel("Escolha seu pokémon:");
+    QFont subtitleFont("Arial", 10, QFont::DemiBold);
+    _title->setFont(subtitleFont);
     _title->setAlignment(Qt::AlignCenter);
+    _title->setStyleSheet("color: darkCyan");
+
+    /*_title = new QLabel("Thiago Lira®");
+    QFont cosubtitleFont("Arial", 10, QFont::DemiBold);
+    _title->setFont(cosubtitleFont);
+    _title->setAlignment(Qt::AlignRight);*/
 
     _pikachuButton = new QPushButton("Pikachu");
+    _pikachuButton->setStyleSheet("color: white");
+    _pikachuButton->setStyleSheet("background-color: yellow;");
     _charmanderButton = new QPushButton("Charmander");
+    _charmanderButton->setStyleSheet("background-color: red;");
     _squirtleButton = new QPushButton("Squirtle");
+    _squirtleButton->setStyleSheet("background-color: blue;");
     _bulbasaurButton = new QPushButton("Bulbasaur");
+    _bulbasaurButton->setStyleSheet("background-color: green;");
 
     _layout = new QVBoxLayout();
     _layout->addWidget(_title);
@@ -41,6 +59,9 @@ void PokeGame::createInitialScreen()
     connect(_charmanderButton, &QPushButton::clicked, this, &PokeGame::selectCharmander);
     connect(_squirtleButton, &QPushButton::clicked, this, &PokeGame::selectSquirtle);
     connect(_bulbasaurButton, &QPushButton::clicked, this, &PokeGame::selectBulbasaur);
+
+    _resultLabel = new QLabel(this); // Adiciona a criação do rótulo
+    //_battleLayout->addWidget(_resultLabel); // Adiciona o rótulo ao layout
 }
 
 void PokeGame::createBattleScreen()
@@ -60,11 +81,16 @@ void PokeGame::createBattleScreen()
     delete _layout;
     _layout = nullptr;
 
+    _attackButton = new QPushButton("Ataque");
+    connect(_attackButton, &QPushButton::clicked, this, &PokeGame::handleAttack);
+
     QVBoxLayout* mainLayout = new QVBoxLayout();
     mainLayout->addLayout(_battleLayout);
+    mainLayout->addWidget(_attackButton);
     setLayout(mainLayout);
 
-    //connect(_player->getAttack(), &PokeAttack::causeDamage, _enemy, &Pokemon::reduceLife);
+    connect(_player->getAttack(), &PokeAttack::causeDamage, _enemy, &Pokemon::reduceLife);
+
 }
 
 
@@ -75,9 +101,10 @@ void PokeGame::startGame()
     {
         QString pokemonName = button->text();
         _player = new Pokemon(pokemonName, this);
-        createBattleScreen();
 
-        connect(_player->getAttack(), &PokeAttack::causeDamage, _enemy, &Pokemon::reduceLife);
+        //_attackButton = new QPushButton("Ataque"); //comentar n trava
+        //connect(_attackButton, &QPushButton::clicked, this, &PokeGame::handleAttack); //comentar n trava
+        //connect(_player->getAttack(), &PokeAttack::causeDamage, _enemy, &Pokemon::reduceLife); //comentar n trava
 
         // Remover widgets da tela inicial
         _title->deleteLater();
@@ -86,6 +113,7 @@ void PokeGame::startGame()
         _squirtleButton->deleteLater();
         _bulbasaurButton->deleteLater();
 
+        createBattleScreen();
     }
 }
 
@@ -113,16 +141,20 @@ void PokeGame::selectBulbasaur()
 
 void PokeGame::handleAttack()
 {
-    // Simulate player's attack
-    int playerDamage = rand() % 20 + 10; // Random damage between 10 and 29
-    _enemy->reduceLife(playerDamage);
-    checkBattleResult();
+    if (_player && _enemy) {
+        int playerDamage = std::rand() % 20 + 10; // Random damage between 10 and 29
+        _enemy->reduceLife(playerDamage);
+        checkBattleResult();
 
-    // Simulate enemy's attack
-    int enemyDamage = rand() % 20 + 10; // Random damage between 10 and 29
-    _player->reduceLife(enemyDamage);
-    checkBattleResult();
+        // Verificar se o inimigo ainda está vivo antes de atacar
+        if (_enemy->getLife() > 0) {
+            int enemyDamage = std::rand() % 20 + 10; // Random damage between 10 and 29
+            _player->reduceLife(enemyDamage);
+            checkBattleResult();
+        }
+    }
 }
+
 
 void PokeGame::checkBattleResult()
 {
@@ -132,6 +164,10 @@ void PokeGame::checkBattleResult()
         _resultLabel->setText("Inimigo venceu!");
     } else if (_enemy->getLife() <= 0) {
         _resultLabel->setText("Jogador venceu!");
+    }
+
+    if (_player->getLife() <= 0 || _enemy->getLife() <= 0) {
+        QTimer::singleShot(3000, this, &PokeGame::resetGame);
     }
 }
 
@@ -160,4 +196,16 @@ QString PokeGame::getRandomEnemyPokemon()
     return availablePokemons[randomIndex] + " (Enemy)";
 }
 
-
+/*QString PokeGame::getPokemonImagePath(const QString &pokemonName)
+{
+    if (pokemonName == "Pikachu")
+        return ":/images/pikachu.png";
+    else if (pokemonName == "Charmander")
+        return ":/images/charmander.png";
+    else if (pokemonName == "Squirtle")
+        return ":/images/squirtle.png";
+    else if (pokemonName == "Bulbasaur")
+        return ":/images/bulbasaur.png";
+    else
+        return "";
+}*/
