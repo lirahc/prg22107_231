@@ -3,6 +3,7 @@
 
 #include <QtWidgets>
 #include "pokemon.h"
+#include "resultwindow.h"
 
 class PokeGame : public QWidget
 {
@@ -23,6 +24,7 @@ private slots:
     //void attack();
     void handleAttack(); //adicionado
     void checkBattleResult();
+    void showResultWindow(QString imagePath);
 
 private:
     QVBoxLayout* _layout;

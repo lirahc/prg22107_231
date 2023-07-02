@@ -1,4 +1,5 @@
 #include "pokegame.h"
+#include "resultwindow.h"
 #include <cstdlib>
 #include <ctime>
 
@@ -157,19 +158,23 @@ void PokeGame::handleAttack()
 
 
 void PokeGame::checkBattleResult()
+
 {
     if (_player->getLife() <= 0 && _enemy->getLife() <= 0) {
         _resultLabel->setText("Empate!");
     } else if (_player->getLife() <= 0) {
         _resultLabel->setText("Inimigo venceu!");
+        showResultWindow("C:/Users/Thiago Lira/Desktop/workspace_QT/PokeGameV8/YOU LOSE.png");
     } else if (_enemy->getLife() <= 0) {
         _resultLabel->setText("Jogador venceu!");
+        showResultWindow("C:/Users/Thiago Lira/Desktop/workspace_QT/PokeGameV8/YOU WIN.png");
     }
 
     if (_player->getLife() <= 0 || _enemy->getLife() <= 0) {
         QTimer::singleShot(3000, this, &PokeGame::resetGame);
     }
 }
+
 
 
 
@@ -209,3 +214,8 @@ QString PokeGame::getRandomEnemyPokemon()
     else
         return "";
 }*/
+void PokeGame::showResultWindow(QString imagePath)
+{
+    ResultWindow *resultWindow = new ResultWindow(imagePath);
+    resultWindow->show();
+}

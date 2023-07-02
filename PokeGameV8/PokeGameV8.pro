@@ -12,12 +12,14 @@ SOURCES += \
     main.cpp \
     pokeattack.cpp \
     pokegame.cpp \
-    pokemon.cpp
+    pokemon.cpp \
+    resultwindow.cpp
 
 HEADERS += \
     pokeattack.h \
     pokegame.h \
-    pokemon.h
+    pokemon.h \
+    resultwindow.h
 
 FORMS += \
     pokegame.ui
