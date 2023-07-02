@@ -20,12 +20,28 @@ Pokemon::Pokemon(QString name, QWidget *parent)
     setLayout(_layout);
 }
 
+PokeAttack* Pokemon::getAttack() const
+{
+    return _attack;
+}
+
 QString Pokemon::getName() const
 {
     return _pokemonName;
 }
 
+int Pokemon::getLife() const
+{
+    return _life->value();
+}
+
 void Pokemon::reduceLife(int intensity)
 {
-    _life->setValue(_life->value() - intensity);
+    int currentLife = _life->value();
+    int newLife = currentLife - intensity;
+
+    // Garantir que a vida não seja menor que 0
+    newLife = std::max(newLife, 0);
+
+    _life->setValue(newLife);
 }

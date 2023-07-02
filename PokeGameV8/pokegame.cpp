@@ -8,6 +8,8 @@ PokeGame::PokeGame(QWidget *parent)
     _battleScreen = false;
     createInitialScreen();
     std::srand(std::time(nullptr));
+    //_attackButton = new QPushButton("Atacar");
+    //connect(_attackButton, &QPushButton::clicked, this, &PokeGame::handleAttack);
     //connect(_player->getAttack(), &PokeAttack::causeDamage, _enemy, &Pokemon::reduceLife);
 
 }
@@ -49,7 +51,7 @@ void PokeGame::createBattleScreen()
     int randomIndex = std::rand() % availablePokemons.size();
     QString enemyName = availablePokemons[randomIndex] + " (Enemy)";
 
-    _enemy = new Pokemon("Enemy Pokemon", this);
+    _enemy = new Pokemon(enemyName, this);
 
     _battleLayout = new QHBoxLayout();
     _battleLayout->addWidget(_player);
@@ -61,7 +63,10 @@ void PokeGame::createBattleScreen()
     QVBoxLayout* mainLayout = new QVBoxLayout();
     mainLayout->addLayout(_battleLayout);
     setLayout(mainLayout);
+
+    //connect(_player->getAttack(), &PokeAttack::causeDamage, _enemy, &Pokemon::reduceLife);
 }
+
 
 void PokeGame::startGame()
 {
@@ -72,6 +77,7 @@ void PokeGame::startGame()
         _player = new Pokemon(pokemonName, this);
         createBattleScreen();
 
+        connect(_player->getAttack(), &PokeAttack::causeDamage, _enemy, &Pokemon::reduceLife);
 
         // Remover widgets da tela inicial
         _title->deleteLater();
@@ -105,11 +111,45 @@ void PokeGame::selectBulbasaur()
 
 
 
-void PokeGame::attack()
+void PokeGame::handleAttack()
 {
-    // Implement the attack logic here
-    // You can update the health of the enemy Pokemon, etc.
+    // Simulate player's attack
+    int playerDamage = rand() % 20 + 10; // Random damage between 10 and 29
+    _enemy->reduceLife(playerDamage);
+    checkBattleResult();
+
+    // Simulate enemy's attack
+    int enemyDamage = rand() % 20 + 10; // Random damage between 10 and 29
+    _player->reduceLife(enemyDamage);
+    checkBattleResult();
 }
+
+void PokeGame::checkBattleResult()
+{
+    if (_player->getLife() <= 0 && _enemy->getLife() <= 0) {
+        _resultLabel->setText("Empate!");
+    } else if (_player->getLife() <= 0) {
+        _resultLabel->setText("Inimigo venceu!");
+    } else if (_enemy->getLife() <= 0) {
+        _resultLabel->setText("Jogador venceu!");
+    }
+}
+
+
+
+
+void PokeGame::resetGame()
+{
+    // Limpa a tela e reinicia o jogo para uma nova batalha
+    delete _player;
+    delete _enemy;
+    delete _battleLayout;
+
+    createInitialScreen();
+    _battleScreen = false;
+}
+
+
 
 QString PokeGame::getRandomEnemyPokemon()
 {

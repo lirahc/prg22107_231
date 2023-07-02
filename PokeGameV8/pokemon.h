@@ -10,6 +10,11 @@ class Pokemon : public QWidget
 public:
     explicit Pokemon(QString name, QWidget *parent = nullptr);
     QString getName() const;
+    int getLife() const;
+    PokeAttack* getAttack() const;
+
+signals:
+    void playerAttack(int intensity);
 
 public slots:
     void reduceLife(int intensity);

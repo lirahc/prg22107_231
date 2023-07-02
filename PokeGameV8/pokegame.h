@@ -20,11 +20,14 @@ private slots:
     void selectCharmander();
     void selectSquirtle();
     void selectBulbasaur();
-    void attack();
+    //void attack();
+    void handleAttack(); //adicionado
+    void checkBattleResult();
 
 private:
     QVBoxLayout* _layout;
     QLabel* _title;
+    QLabel* _resultLabel;
     QPushButton* _pikachuButton;
     QPushButton* _charmanderButton;
     QPushButton* _squirtleButton;
@@ -38,6 +41,8 @@ private:
     bool _battleScreen;
 
     QString getRandomEnemyPokemon();
+
+    void resetGame();
 };
 
 

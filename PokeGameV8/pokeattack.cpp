@@ -1,4 +1,5 @@
 #include "pokeattack.h"
+#include <cstdlib>
 
 PokeAttack::PokeAttack(QString name, QWidget *parent)
     : QWidget{parent}
@@ -10,4 +11,14 @@ PokeAttack::PokeAttack(QString name, QWidget *parent)
 
     this->setLayout(_layout);
 
+}
+void PokeAttack::attackEnemy()
+{
+    emit causeDamage(rand() % 20 + 10);
+}
+
+
+QPushButton* PokeAttack::getButton() const
+{
+    return _button;
 }

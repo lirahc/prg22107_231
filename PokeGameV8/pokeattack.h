@@ -8,6 +8,9 @@ class PokeAttack : public QWidget
     Q_OBJECT
 public:
     explicit PokeAttack(QString name, QWidget *parent = nullptr);
+    void attackEnemy();
+    QPushButton* getButton() const;
+
 
 signals:
     void causeDamage(int intensity);
