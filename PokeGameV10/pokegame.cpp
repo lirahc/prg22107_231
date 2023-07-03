@@ -35,8 +35,8 @@ void PokeGame::createInitialScreen()
     _title->setFont(titleFont);
     _title->setAlignment(Qt::AlignCenter);*/
 
-    _title = new QLabel("Escolha seu pokémon:");
-        QFont subtitleFont("Arial", 10, QFont::DemiBold);
+    _title = new QLabel("Escolha seu pokémon inicial! :");
+        QFont subtitleFont("Arial", 15, QFont::DemiBold);
     _title->setFont(subtitleFont);
     _title->setAlignment(Qt::AlignCenter);
     _title->setStyleSheet("color: darkCyan");
@@ -48,10 +48,10 @@ void PokeGame::createInitialScreen()
 
 
     // Pikachu
-    _pikachuButton = new QPushButton("Pikachu", this);
-    _pikachuButton->setStyleSheet("color: white; background-color: yellow;");
+    _pikachuButton = new QPushButton("PIKACHU", this);
+    _pikachuButton->setStyleSheet("color: black; background-color: yellow;");
 
-    QPixmap pikachuImage("C:/Users/Thiago Lira/Desktop/workspace_QT/PokeGameV10/pikachu.png"); // Substitua pelo caminho da imagem do Pikachu
+    QPixmap pikachuImage("C:/Users/Thiago Lira/Desktop/workspace_QT/PokeGameV10/pikachu.png");
     QPixmap scaledPikachuImage = pikachuImage.scaled(QSize(100, 100));
 
     _pikachuButton->setIcon(QIcon(scaledPikachuImage));
@@ -60,10 +60,10 @@ void PokeGame::createInitialScreen()
 
 
     // Charmander
-    _charmanderButton = new QPushButton("Charmander", this);
-    _charmanderButton->setStyleSheet("color: white; background-color: red;");
+    _charmanderButton = new QPushButton("CHARMANDER", this);
+    _charmanderButton->setStyleSheet("color: black; background-color: red;");
 
-    QPixmap charmanderImage("C:/Users/Thiago Lira/Desktop/workspace_QT/PokeGameV10/charmander.png"); // Substitua pelo caminho da imagem do Charmander
+    QPixmap charmanderImage("C:/Users/Thiago Lira/Desktop/workspace_QT/PokeGameV10/charmander.png");
     QPixmap scaledCharmanderImage = charmanderImage.scaled(QSize(100, 100));
 
     _charmanderButton->setIcon(QIcon(scaledCharmanderImage));
@@ -71,10 +71,10 @@ void PokeGame::createInitialScreen()
     //_charmanderButton->setStyleSheet("QPushButton { border: none; }");
 
     // Squirtle
-    _squirtleButton = new QPushButton("Squirtle", this);
-    _squirtleButton->setStyleSheet("color: white; background-color: blue;");
+    _squirtleButton = new QPushButton("SQUIRTLE", this);
+    _squirtleButton->setStyleSheet("color: black; background-color: blue;");
 
-    QPixmap squirtleImage("C:/Users/Thiago Lira/Desktop/workspace_QT/PokeGameV10/squirtle.png"); // Substitua pelo caminho da imagem do Squirtle
+    QPixmap squirtleImage("C:/Users/Thiago Lira/Desktop/workspace_QT/PokeGameV10/squirtle.png");
     QPixmap scaledSquirtleImage = squirtleImage.scaled(QSize(100, 100));
 
     _squirtleButton->setIcon(QIcon(scaledSquirtleImage));
@@ -82,10 +82,10 @@ void PokeGame::createInitialScreen()
     //_squirtleButton->setStyleSheet("QPushButton { border: none; }");
 
     // Bulbasaur
-    _bulbasaurButton = new QPushButton("Bulbasaur");
-    _bulbasaurButton->setStyleSheet("color: white; background-color: darkgreen;");
+    _bulbasaurButton = new QPushButton("BULBASAUR");
+    _bulbasaurButton->setStyleSheet("color: black; background-color: darkgreen;");
 
-    QPixmap bulbasaurImage("C:/Users/Thiago Lira/Desktop/workspace_QT/PokeGameV10/bulbasaur.png"); // Substitua pelo caminho da imagem do Bulbasaur
+    QPixmap bulbasaurImage("C:/Users/Thiago Lira/Desktop/workspace_QT/PokeGameV10/bulbasaur.png");
     QPixmap scaledBulbasaurImage = bulbasaurImage.scaled(QSize(100, 100));
 
     _bulbasaurButton->setIcon(QIcon(scaledBulbasaurImage));
@@ -246,7 +246,7 @@ QString PokeGame::getRandomEnemyPokemon()
     return availablePokemons[randomIndex] + " (Enemy)";
 }
 
-/*QString PokeGame::getPokemonImagePath(const QString &pokemonName)
+/*QString PokeGame::getPokemonImagePath(const QString &pokemonName) //NAO FUNCIONOU
 {
     if (pokemonName == "Pikachu")
         return ":/images/pikachu.png";
